@@ -526,7 +526,7 @@ def mutation_sample_dispatch(
     mutant_operations.remove(ggrp_target.loc_idx.op_type)
 
     while mutant_operations:
-        current_mutation = random.choice(sorted(mutant_operations))
+        current_mutation = random.choice(list(mutant_operations))
         mutant_operations.remove(current_mutation)
 
         trial_results = trial_runner(
