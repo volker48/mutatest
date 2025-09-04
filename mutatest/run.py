@@ -526,8 +526,7 @@ def mutation_sample_dispatch(
     mutant_operations.remove(ggrp_target.loc_idx.op_type)
 
     while mutant_operations:
-        # random.choice doesn't support sets, but sample of 1 produces a list with one element
-        current_mutation = random.sample(mutant_operations, k=1)[0]
+        current_mutation = random.choice(sorted(mutant_operations))
         mutant_operations.remove(current_mutation)
 
         trial_results = trial_runner(
